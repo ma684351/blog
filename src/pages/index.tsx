@@ -1,5 +1,7 @@
 import Head from "next/head"
+import { stringify } from "querystring";
 import { Component } from 'react'
+//@ts-ignore
 import { attributes, react as HomeContent } from '../../content/home.md';
 
 export default class Home extends Component {
@@ -14,7 +16,7 @@ export default class Home extends Component {
           <h1>{title}</h1>
           <HomeContent />
           <ul>
-            {cats.map((cat, k) => (
+            {cats.map((cat: { [key: string]: string }, k:string) => (
               <li key={k}>
                 <h2>{cat.name}</h2>
                 <p>{cat.description}</p>
